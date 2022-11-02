@@ -2,6 +2,7 @@ const quoteContainer = document.getElementById('quote-container');
 const quoteText = document.getElementById('quote');
 const quoteAuthor = document.getElementById('author');
 const twitterButton = document.getElementById('twitter');
+const whatsappButton = document.getElementById('whatsapp');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
 
@@ -72,9 +73,15 @@ function tweetQuote(){
     window.open(twitterUrl, '_blank');
 }
 
+function statusQuote(){
+    const whatsappUrl = `whatsapp://send?text=${quoteText.textContent} ${quoteAuthor.textContent}`;
+    window.open(whatsappUrl)
+}
+
 // Event listeners
 newQuoteBtn.addEventListener('click', newQuote);
 twitterButton.addEventListener('click', tweetQuote);
+whatsappButton.addEventListener('click', statusQuote);
 
 // On load
 getQuotes();
